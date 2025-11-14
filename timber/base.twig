@@ -1,0 +1,31 @@
+{# General layout (doctype, header, footer) #}
+<!DOCTYPE html>
+<html {{ site.language_attributes }}>
+	<head>
+		<meta charset="{{ site.charset }}">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="{{ site.description }}">
+
+		<title>
+			{% block title %}
+				{{ wp_title }}
+			{% endblock %}
+		</title>
+
+		{{ function('wp_head') }}
+	</head>
+	<body class="{{ body_class }}">
+
+		{% include 'partials/header.twig' %}
+
+		<main id="main-content" class="min-h-screen">
+			{% block content %}
+				{# Content goes here #}
+			{% endblock %}
+		</main>
+
+		{% include 'partials/footer.twig' %}
+
+		{{ function('wp_footer') }}
+	</body>
+</html>

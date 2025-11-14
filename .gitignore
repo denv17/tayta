@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+vendor/
+composer.lock
+
+# Build files
+public/bundle.css
+public/app.js
+public/assets/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+

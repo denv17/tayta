@@ -1,0 +1,19 @@
+{# Button Component #}
+
+{% set classes = 'btn' %}
+{% if variant %}
+	{% set classes = classes ~ ' ' ~ variant %}
+{% endif %}
+{% if classes %}
+	{% set classes = classes ~ ' ' ~ classes %}
+{% endif %}
+
+{% if url %}
+	<a class="{{ classes }}" href="{{ url }}" class="{{ classes }}">
+		{{ text|default('Button') }}
+	</a>
+{% else %}
+	<button type="{{ type|default('button') }}" class="{{ classes }}">
+		{{ text|default('Button') }}
+	</button>
+{% endif %}
