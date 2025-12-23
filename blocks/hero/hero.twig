@@ -1,0 +1,48 @@
+{# Hero Block #}
+<section id="home" class="relative bg-orange min-h-208 flex items-center z-10">
+	<div class="container">
+		<div
+			class="grid lg:grid-cols-3 gap-12 items-center pt-28 lg:pt-50 pb-60 xl:pb-40">
+
+			{# Left Content #}
+			<div
+				class="lg:col-span-2 flex flex-col md:flex-row gap-8">
+				{# Logo/Icon #}
+				{% if fields.icon %}
+					<div class="w-32 md:w-80 xl:w-100 h-32 md:h-80 xl:h-120 shrink-0">
+						<img src="{{ fields.icon.url }}" alt="{{ fields.icon.alt }}" class="w-full h-full object-contain">
+					</div>
+				{% endif %}
+
+				{# Title #}
+				<div class="flex flex-col gap-8 max-w-2xl">
+					<h1 class="text-blue font-heading font-black text-6xl lg:text-8xl leading-none uppercase">
+						{{ fields.title|default('The Peruvian Way') }}
+					</h1>
+
+					{# Description #}
+					{% if fields.description %}
+						<p class="text-white text-lg lg:text-xl xl:max-w-[28ch]">
+							{{ fields.description }}
+						</p>
+					{% endif %}
+
+					{# CTA Button #}
+					{% if fields.cta %}
+						<div>
+							{% include 'components/button.twig' with { btn: fields.cta } %}
+						</div>
+					{% endif %}
+				</div>
+			</div>
+
+			{# Right Content - Bowl Image #}
+			{% if fields.image %}
+				<div class="absolute right-0 -bottom-30">
+					<img src="{{ fields.image.url }}" alt="{{ fields.image.alt }}" class="w-80 xl:w-120">
+				</div>
+			{% endif %}
+
+		</div>
+	</div>
+</section>

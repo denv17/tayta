@@ -1,0 +1,40 @@
+{# Newsletter Block #}
+<section class="bg-blue py-16 relative overflow-hidden" style="background-image: url('{{ site.theme.link }}/src/images/patterns/newsletter-pattern.png'); background-repeat: repeat;">
+	<div class="container relative z-10">
+		<div
+			class="max-w-6xl mx-auto">
+
+			{# Orange Content Box #}
+			<div class="flex flex-col lg:flex-row lg:items-center gap-8 bg-orange rounded-3xl p-8 lg:p-12">
+
+				<div
+					class="max-w-100 flex flex-col gap-4">
+					{# Title #}
+					<h2 class="text-white font-black text-3xl lg:text-4xl leading-tight">
+						Subscribe<br>
+						to our Newsletter
+					</h2>
+
+					{# Description #}
+					{% if fields.description %}
+						<p class="text-white text-base">
+							{{ fields.description }}
+						</p>
+					{% endif %}
+				</div>
+
+				{# Newsletter Form #}
+				<form class="grow flex flex-col sm:flex-row gap-4 sm:border sm:border-blue sm:rounded-full" data-newsletter-form>
+					<input type="email" name="email" placeholder="Enter Your Email" class="flex-1 px-6 py-4 bg-transparent border sm:border-none border-blue rounded-full focus:outline-none text-blue placeholder:text-blue" required>
+
+					<button type="submit" class="flex items-center justify-center bg-blue text-white text-center text-xl font-bold uppercase px-6 py-4 rounded-full">
+						<span>
+							{{ fields.button_text|default('SUBSCRIBE') }}
+						</span>
+					</button>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</section>

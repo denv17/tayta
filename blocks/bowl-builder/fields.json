@@ -1,0 +1,112 @@
+{
+  "key": "group_bowl_builder_block",
+  "title": "Bowl Builder Block",
+  "fields": [
+    {
+      "key": "field_bowl_title",
+      "label": "Title",
+      "name": "title",
+      "type": "text",
+      "instructions": "",
+      "required": 1,
+      "default_value": "Create Your Own Bowl"
+    },
+    {
+      "key": "field_bowl_subtitle",
+      "label": "Subtitle",
+      "name": "subtitle",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "default_value": "Healthy Fast Delicious"
+    },
+    {
+      "key": "field_bowl_base_price",
+      "label": "Base Price",
+      "name": "base_price",
+      "type": "number",
+      "instructions": "Base price for the bowl (before extras)",
+      "required": 0,
+      "default_value": 10,
+      "min": 0,
+      "step": 0.5
+    },
+    {
+      "key": "field_bowl_option_groups",
+      "label": "Option Groups",
+      "name": "option_groups",
+      "type": "repeater",
+      "instructions": "Add groups of options (e.g., Base, Protein, Sauce, Extras)",
+      "required": 0,
+      "layout": "block",
+      "button_label": "Add Option Group",
+      "sub_fields": [
+        {
+          "key": "field_group_title",
+          "label": "Group Title",
+          "name": "group_title",
+          "type": "text",
+          "instructions": "e.g., Choose your base",
+          "required": 1,
+          "default_value": ""
+        },
+        {
+          "key": "field_group_options",
+          "label": "Options",
+          "name": "options",
+          "type": "repeater",
+          "instructions": "Add options for this group",
+          "required": 0,
+          "layout": "table",
+          "button_label": "Add Option",
+          "sub_fields": [
+            {
+              "key": "field_option_name",
+              "label": "Option Name",
+              "name": "option_name",
+              "type": "text",
+              "instructions": "",
+              "required": 1,
+              "default_value": ""
+            },
+            {
+              "key": "field_option_price",
+              "label": "Additional Price",
+              "name": "additional_price",
+              "type": "text",
+              "instructions": "Just enter the number (e.g., 1, 2, 4). Will display as +$1, +$2, etc. Leave empty if no extra cost.",
+              "required": 0,
+              "default_value": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "field_bowl_image",
+      "label": "Bowl Preview Image",
+      "name": "bowl_image",
+      "type": "image",
+      "instructions": "Image shown in the summary card",
+      "required": 0,
+      "return_format": "array",
+      "preview_size": "medium",
+      "library": "all"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/bowl-builder"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true
+}

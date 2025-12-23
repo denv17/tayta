@@ -1,19 +1,27 @@
-{# Button Component #}
+{# Button Component - Variants: yellow, blue, orange #}
 
-{% set classes = 'btn' %}
-{% if variant %}
-	{% set classes = classes ~ ' ' ~ variant %}
-{% endif %}
-{% if classes %}
-	{% set classes = classes ~ ' ' ~ classes %}
+{% set baseClasses = 'inline-flex items-center min-w-40 justify-center px-8 py-3 text-xl font-bold uppercase rounded-md transition-colors' %}
+
+{% set variant = btn.variant|default('yellow') %}
+{% set variantClasses = {
+  yellow: 'bg-yellow text-blue hover:bg-opacity-90',
+  blue: 'bg-blue text-white hover:bg-opacity-90',
+  orange: 'bg-orange text-white hover:bg-opacity-90'
+} %}
+
+{% set classes = baseClasses ~ ' ' ~ variantClasses[variant] %}
+{% if btn.classes %}
+	{% set classes = classes ~ ' ' ~ btn.classes %}
 {% endif %}
 
-{% if url %}
-	<a class="{{ classes }}" href="{{ url }}" class="{{ classes }}">
-		{{ text|default('Button') }}
+{% set buttonText = btn.title|default(btn.text)|default('Button') %}
+
+{% if btn.url %}
+	<a class="{{ classes }}" href="{{ btn.url }}" target="{{ btn.target|default('_self') }}">
+		{{ buttonText }}
 	</a>
 {% else %}
-	<button type="{{ type|default('button') }}" class="{{ classes }}">
-		{{ text|default('Button') }}
+	<button type="{{ btn.type|default('button') }}" class="{{ classes }}" {{ btn.name ? 'name="' ~ btn.name ~ '"' : '' }}>
+		{{ buttonText }}
 	</button>
 {% endif %}

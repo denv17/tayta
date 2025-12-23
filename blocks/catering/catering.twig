@@ -1,0 +1,43 @@
+{# Catering Block #}
+<section
+	id="catering" class="relative py-0 overflow-hidden">
+	{# Background Image #}
+	<div class="relative h-[600px]">
+		{% if fields.background_image %}
+			<img src="{{ fields.background_image.url }}" alt="{{ fields.background_image.alt }}" class="absolute inset-0 w-full h-full object-cover">
+		{% endif %}
+
+		{# Dark overlay #}
+		<div class="absolute inset-0 bg-black/60"></div>
+
+		{# Content #}
+		<div class="relative z-10 h-full flex items-center">
+			<div class="container">
+				<div
+					class="max-w-3xl mx-auto text-center text-white flex flex-col gap-6">
+
+					{# Title #}
+					<h2 class="font-heading font-black text-4xl lg:text-6xl uppercase">
+						{{ fields.title|default('Catering') }}
+					</h2>
+
+					{# Description #}
+					{% if fields.description %}
+						<p class="text-base lg:text-lg leading-relaxed">
+							{{ fields.description }}
+						</p>
+					{% endif %}
+
+					{# CTA Button #}
+					{% if fields.cta %}
+						<div class="text-center">
+							{% set cta_with_variant = fields.cta|merge({ variant: 'orange' }) %}
+							{% include 'components/button.twig' with { btn: cta_with_variant } %}
+						</div>
+					{% endif %}
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

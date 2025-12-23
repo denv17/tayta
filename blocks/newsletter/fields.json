@@ -1,0 +1,58 @@
+{
+  "key": "group_newsletter_block",
+  "title": "Newsletter Block",
+  "fields": [
+    {
+      "key": "field_newsletter_title",
+      "label": "Title",
+      "name": "title",
+      "type": "text",
+      "instructions": "",
+      "required": 1,
+      "default_value": "Subscribe to our Newsletter"
+    },
+    {
+      "key": "field_newsletter_description",
+      "label": "Description",
+      "name": "description",
+      "type": "textarea",
+      "instructions": "",
+      "required": 0,
+      "rows": 2,
+      "default_value": "Get the latest news and exclusive offers"
+    },
+    {
+      "key": "field_newsletter_button_text",
+      "label": "Button Text",
+      "name": "button_text",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "default_value": "Subscribe"
+    },
+    {
+      "key": "field_newsletter_privacy",
+      "label": "Privacy Text",
+      "name": "privacy_text",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "default_value": "We respect your privacy. Unsubscribe at any time."
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/newsletter"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true
+}

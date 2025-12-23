@@ -1,0 +1,62 @@
+{# Gallery Slider Block #}
+<section class="relative py-0 overflow-hidden">
+	<div class="relative h-[600px]">
+		{% if fields.slides %}
+			<div class="h-full overflow-x-auto scroll-smooth snap-x snap-mandatory touch-pan-x scrollbar-hide" data-gallery-slider>
+				<div class="flex h-full" data-gallery-slides>
+					{% for slide in fields.slides %}
+						<div
+							class="relative shrink-0 w-full h-full snap-center" data-gallery-slide>
+							{# Image #}
+							<img
+							src="{{ slide.image.url }}" alt="{{ slide.image.alt }}" class="w-full h-full object-cover">
+
+							{# Overlay gradient #}
+							<div class="absolute inset-0 bg-linear-to-b from-black/30 to-black/60"></div>
+
+							{# Caption #}
+							{% if slide.caption %}
+								<div class="absolute inset-0 flex items-end justify-center z-10 p-8">
+									<div class="text-center text-white max-w-3xl">
+										<p class="text-lg lg:text-xl leading-relaxed uppercase">
+											{{ slide.caption }}
+										</p>
+									</div>
+								</div>
+							{% endif %}
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		{% endif %}
+
+		{# Navigation Arrows #}
+		<button class="absolute left-8 top-1/2 -translate-y-1/2 z-20 bg-orange w-12 h-12 rounded-full flex items-center justify-center hover:bg-yellow transition-colors cursor-pointer" data-slider-prev>
+			<svg class="w-6 h-6 text-white" viewbox="0 0 45 39" fill="none">
+				<g clip-path="url(#clip0_4067_5906)">
+					<path d="M45 17.9652L5.87523 17.9652L21.6601 2.16411L19.4895 1.70383e-06L1.70474e-06 19.5L19.4895 39L21.6601 36.8359L5.87523 21.0348L45 21.0348L45 17.9652Z" fill="currentColor"/>
+				</g>
+				<defs>
+					<clipPath id="clip0_4067_5906">
+						<rect width="45" height="39" fill="currentColor" transform="translate(45 39) rotate(-180)"/>
+					</clipPath>
+				</defs>
+			</svg>
+
+		</button>
+
+		<button class="absolute right-8 top-1/2 -translate-y-1/2 z-20 bg-orange w-12 h-12 rounded-full flex items-center justify-center hover:bg-yellow transition-colors cursor-pointer" data-slider-next>
+			<svg class="w-6 h-6 text-white" viewbox="0 0 45 39" fill="none">
+				<g clip-path="url(#clip0_4067_5902)">
+					<path d="M0 21.0348H39.1248L23.3399 36.8359L25.5105 39L45 19.5L25.5105 0L23.3399 2.16411L39.1248 17.9652H0V21.0348Z" fill="currentColor"/>
+				</g>
+				<defs>
+					<clipPath id="clip0_4067_5902">
+						<rect width="45" height="39" fill="currentColor"/>
+					</clipPath>
+				</defs>
+			</svg>
+
+		</button>
+	</div>
+</section>

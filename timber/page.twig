@@ -2,13 +2,5 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<article class="container mx-auto px-4 py-12">
-		<header class="mb-8">
-			<h1 class="text-4xl font-bold mb-4">{{ post.title }}</h1>
-		</header>
-
-		<div class="prose max-w-none">
-			{{ post.content }}
-		</div>
-	</article>
+	{{ post.content }}
 {% endblock %}

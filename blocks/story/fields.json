@@ -1,0 +1,52 @@
+{
+  "key": "group_story_block",
+  "title": "Story Block",
+  "fields": [
+    {
+      "key": "field_story_image",
+      "label": "Chef Image",
+      "name": "image",
+      "type": "image",
+      "instructions": "Upload chef or team photo",
+      "required": 0,
+      "return_format": "array",
+      "preview_size": "medium",
+      "library": "all"
+    },
+    {
+      "key": "field_story_title",
+      "label": "Title",
+      "name": "title",
+      "type": "text",
+      "instructions": "",
+      "required": 1,
+      "default_value": "Our Story"
+    },
+    {
+      "key": "field_story_description",
+      "label": "Description",
+      "name": "description",
+      "type": "wysiwyg",
+      "instructions": "",
+      "required": 1,
+      "tabs": "all",
+      "toolbar": "basic",
+      "media_upload": 0
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/story"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true
+}

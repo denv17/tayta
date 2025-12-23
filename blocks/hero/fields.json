@@ -1,0 +1,70 @@
+{
+  "key": "group_hero_block",
+  "title": "Hero Block",
+  "fields": [
+    {
+      "key": "field_hero_icon",
+      "label": "Icon",
+      "name": "icon",
+      "type": "image",
+      "instructions": "Upload an icon or logo image",
+      "required": 0,
+      "return_format": "array",
+      "preview_size": "thumbnail",
+      "library": "all"
+    },
+    {
+      "key": "field_hero_title",
+      "label": "Title",
+      "name": "title",
+      "type": "text",
+      "instructions": "",
+      "required": 1,
+      "default_value": "The Peruvian Way"
+    },
+    {
+      "key": "field_hero_description",
+      "label": "Description",
+      "name": "description",
+      "type": "textarea",
+      "instructions": "",
+      "required": 0,
+      "rows": 3
+    },
+    {
+      "key": "field_hero_cta",
+      "label": "CTA Button",
+      "name": "cta",
+      "type": "link",
+      "instructions": "Add button text and link",
+      "required": 0,
+      "return_format": "array"
+    },
+    {
+      "key": "field_hero_image",
+      "label": "Bowl Image",
+      "name": "image",
+      "type": "image",
+      "instructions": "Upload the main hero image (bowl)",
+      "required": 0,
+      "return_format": "array",
+      "preview_size": "medium",
+      "library": "all"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/hero"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true
+}

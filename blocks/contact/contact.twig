@@ -1,0 +1,114 @@
+{# Contact Block #}
+<section id="contact-us" class="bg-cream py-20 relative" style="background-image: url('{{ site.theme.link }}/src/images/patterns/contact-pattern.png'); background-repeat: repeat; background-size: auto;">
+	<div class="container">
+
+		<div
+			class="max-w-6xl mx-auto">
+
+			{# Title #}
+			<div class="mb-12">
+				<span class="text-orange font-bold text-lg lg:text-xl uppercase">
+					{{ fields.subtitle|default('Connect') }}
+				</span>
+				<h2 class="text-blue font-heading font-black text-4xl lg:text-6xl uppercase mt-4">
+					{{ fields.title|default('Get In Touch') }}
+				</h2>
+			</div>
+
+			<div
+				class="grid lg:grid-cols-2 gap-12">
+				{# Contact Info #}
+				<div
+					class="space-y-8">
+
+					{# Phone #}
+					{% if fields.phone %}
+						<div class="flex items-start gap-4">
+							<div class="bg-orange w-12 h-12 rounded-full flex items-center justify-center shrink-0">
+								<svg class="w-6 h-6 text-blue" viewbox="0 0 30 30" fill="none">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M3.20946 18.2609C-1.07112 13.9891 -1.07112 6.9913 3.20946 2.7163L4.48286 1.44457C5.16527 0.763043 6.28195 0.763043 6.96762 1.44457L10.445 4.91739C11.1274 5.59891 11.1274 6.71413 10.445 7.39891L8.39448 9.44674C7.40189 10.438 7.40189 12.1011 8.39448 13.0924L16.9361 21.6228C17.9287 22.6141 19.5939 22.6141 20.5865 21.6228L22.637 19.575C23.3194 18.8935 24.4361 18.8935 25.1217 19.575L28.5958 23.0478C29.2782 23.7293 29.2782 24.8446 28.5958 25.5293L27.3192 26.8011C23.0386 31.0761 16.0349 31.0761 11.751 26.8011L3.20946 18.2674V18.2609ZM16.5736 0C16.061 0 15.6431 0.417391 15.6431 0.929348C15.6431 1.4413 16.061 1.8587 16.5736 1.8587C19.7669 1.8587 22.6598 3.15 24.7495 5.24022C26.8425 7.33043 28.1355 10.2163 28.1355 13.4054C28.1355 13.9174 28.5534 14.3348 29.066 14.3348C29.5786 14.3348 29.9966 13.9174 29.9966 13.4054C29.9966 9.70435 28.4946 6.34891 26.0654 3.92283C23.6361 1.5 20.2828 0 16.5736 0ZM21.4485 8.54022C22.6892 9.78261 23.4565 11.5043 23.4565 13.4087C23.4565 13.9207 23.8745 14.338 24.3871 14.338C24.8997 14.338 25.3176 13.9207 25.3176 13.4087C25.3176 10.9989 24.3446 8.81413 22.7643 7.23261C21.184 5.65109 19.0029 4.67283 16.5932 4.67283C16.0806 4.67283 15.6627 5.09022 15.6627 5.60217C15.6627 6.11413 16.0806 6.53152 16.5932 6.53152C18.4968 6.53152 20.211 7.30109 21.4485 8.54022Z" fill="currentColor"/>
+								</svg>
+							</div>
+							<div>
+								<h3 class="text-orange font-bold text-sm uppercase mb-1">For order</h3>
+								<a href="tel:{{ fields.phone }}" class="text-blue font-bold text-lg hover:text-orange transition-colors">
+									{{ fields.phone }}
+								</a>
+							</div>
+						</div>
+					{% endif %}
+
+					{# Email #}
+					{% if fields.email %}
+						<div class="flex items-start gap-4">
+							<div class="bg-orange w-12 h-12 rounded-full flex items-center justify-center shrink-0">
+								<svg class="w-6 h-6 text-blue" viewbox="0 0 29 25" fill="none">
+									<path d="M4.6875 20.3125C6.08724 21.3542 7.12891 21.875 7.8125 21.875C8.49609 21.875 9.53776 21.3542 10.9375 20.3125C11.9792 19.5964 13.5417 18.457 15.625 16.8945V23.4375C15.625 23.8607 15.4622 24.2188 15.1367 24.5117C14.8438 24.8372 14.4857 25 14.0625 25H1.5625C1.13932 25 0.764974 24.8372 0.439453 24.5117C0.146484 24.2188 0 23.8607 0 23.4375V16.8945C2.08333 18.457 3.64583 19.5964 4.6875 20.3125ZM14.0625 12.5C14.4857 12.5 14.8438 12.6628 15.1367 12.9883C15.4622 13.2812 15.625 13.6393 15.625 14.0625V14.9902C15.3971 15.1855 15.0879 15.4297 14.6973 15.7227C14.3392 16.0156 13.8021 16.4388 13.0859 16.9922C12.3698 17.513 11.3444 18.2617 10.0098 19.2383C9.94466 19.2383 9.63542 19.4173 9.08203 19.7754C8.52865 20.1335 8.10547 20.3125 7.8125 20.3125C7.58464 20.3125 7.32422 20.2474 7.03125 20.1172C6.77083 19.9544 6.47786 19.7428 6.15234 19.4824C5.82682 19.222 5.64779 19.0755 5.61523 19.043C4.2806 18.099 3.25521 17.3503 2.53906 16.7969C1.82292 16.2435 1.26953 15.8203 0.878906 15.5273C0.520833 15.2344 0.227865 15.0065 0 14.8438V14.0625C0 13.6393 0.146484 13.2812 0.439453 12.9883C0.764974 12.6628 1.13932 12.5 1.5625 12.5H14.0625ZM26.5625 7.8125C26.9857 7.8125 27.3438 7.97526 27.6367 8.30078C27.9622 8.59375 28.125 8.95182 28.125 9.375V18.75C28.125 19.1732 27.9622 19.5475 27.6367 19.873C27.3438 20.166 26.9857 20.3125 26.5625 20.3125H17.1875V13.7695C17.0898 12.9557 16.748 12.2884 16.1621 11.7676C15.5762 11.2142 14.8763 10.9375 14.0625 10.9375H9.375V9.375C9.375 8.95182 9.52148 8.59375 9.81445 8.30078C10.14 7.97526 10.5143 7.8125 10.9375 7.8125H26.5625ZM25 14.0625V10.9375H21.875V14.0625H25ZM7.8125 9.375V10.9375H3.125V1.5625C3.125 1.13932 3.27148 0.78125 3.56445 0.488281C3.88997 0.16276 4.26432 0 4.6875 0H20.3125C20.7357 0 21.0938 0.16276 21.3867 0.488281C21.7122 0.78125 21.875 1.13932 21.875 1.5625V6.25H10.9375C10.0911 6.25 9.35872 6.55924 8.74023 7.17773C8.12174 7.79622 7.8125 8.52865 7.8125 9.375Z" fill="currentColor"/>
+								</svg>
+							</div>
+							<div>
+								<h3 class="text-orange font-bold text-sm uppercase mb-1">For Catering</h3>
+								<a href="mailto:{{ fields.email }}" class="text-blue font-bold text-lg hover:text-orange transition-colors">
+									{{ fields.email }}
+								</a>
+							</div>
+						</div>
+					{% endif %}
+
+					{# Address #}
+					{% if fields.address %}
+						<div class="flex items-start gap-4">
+							<div class="bg-orange w-12 h-12 rounded-full flex items-center justify-center shrink-0">
+								<svg class="w-6 h-6 text-blue" viewbox="0 0 19 25" fill="none">
+									<path d="M8.39844 24.5117C7.61719 23.3724 6.72201 22.0866 5.71289 20.6543C4.73633 19.222 4.03646 18.2129 3.61328 17.627C3.1901 17.041 2.70182 16.3249 2.14844 15.4785C1.59505 14.5996 1.2207 13.9811 1.02539 13.623C0.86263 13.265 0.667318 12.8092 0.439453 12.2559C0.244141 11.7025 0.113932 11.2305 0.0488281 10.8398C0.016276 10.4167 0 9.92839 0 9.375C0 6.77083 0.911458 4.55729 2.73438 2.73438C4.55729 0.911458 6.77083 0 9.375 0C11.9792 0 14.1927 0.911458 16.0156 2.73438C17.8385 4.55729 18.75 6.77083 18.75 9.375C18.75 9.92839 18.7174 10.4167 18.6523 10.8398C18.6198 11.2305 18.4896 11.7025 18.2617 12.2559C18.0664 12.8092 17.8711 13.265 17.6758 13.623C17.513 13.9811 17.1549 14.5996 16.6016 15.4785C16.0482 16.3249 15.5599 17.041 15.1367 17.627C14.7135 18.2129 13.9974 19.222 12.9883 20.6543C12.0117 22.0866 11.1328 23.3724 10.3516 24.5117C10.1237 24.8372 9.79818 25 9.375 25C8.95182 25 8.6263 24.8372 8.39844 24.5117ZM6.5918 12.1582C7.37305 12.9069 8.30078 13.2812 9.375 13.2812C10.4492 13.2812 11.3607 12.9069 12.1094 12.1582C12.8906 11.377 13.2812 10.4492 13.2812 9.375C13.2812 8.30078 12.8906 7.38932 12.1094 6.64062C11.3607 5.85938 10.4492 5.46875 9.375 5.46875C8.30078 5.46875 7.37305 5.85938 6.5918 6.64062C5.8431 7.38932 5.46875 8.30078 5.46875 9.375C5.46875 10.4492 5.8431 11.377 6.5918 12.1582Z" fill="currentColor"/>
+								</svg>
+							</div>
+							<div>
+								<h3 class="text-orange font-bold text-sm uppercase mb-1">Location</h3>
+								<p class="text-blue font-bold text-lg">
+									{{ fields.address }}
+								</p>
+							</div>
+						</div>
+					{% endif %}
+
+				</div>
+
+				{# Contact Form #}
+				<div>
+					<form class="space-y-4" data-contact-form>
+						<div class="grid sm:grid-cols-2 gap-4">
+							<input type="text" name="name" placeholder="Name" class="w-full px-6 py-4 bg-white border-0 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange" required>
+							<input type="tel" name="phone" placeholder="Phone No" class="w-full px-6 py-4 bg-white border-0 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange">
+						</div>
+						<div class="grid sm:grid-cols-2 gap-4">
+							<input type="email" name="email" placeholder="Email" class="w-full px-6 py-4 bg-white border-0 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange" required>
+							<input type="text" name="address" placeholder="Address" class="w-full px-6 py-4 bg-white border-0 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange">
+						</div>
+						<textarea name="message" placeholder="Message" rows="6" class="w-full px-6 py-4 bg-white border-0 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange resize-none" required></textarea>
+						<div class="flex justify-end">
+							{% include 'components/button.twig' with {
+								btn: {
+									type: 'submit',
+									text: 'SEND',
+									variant: 'orange',
+									classes: 'px-12'
+								}
+							} %}
+						</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	{# Full Width Bowls Banner #}
+	{% if fields.bowls_image %}
+		<div class="mt-16">
+			<img src="{{ fields.bowls_image.url }}" alt="{{ fields.bowls_image.alt }}" class="w-full h-auto object-cover">
+		</div>
+	{% endif %}
+
+</section>

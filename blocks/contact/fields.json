@@ -1,0 +1,78 @@
+{
+  "key": "group_contact_block",
+  "title": "Contact Block",
+  "fields": [
+    {
+      "key": "field_contact_subtitle",
+      "label": "Subtitle",
+      "name": "subtitle",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "default_value": "Connect"
+    },
+    {
+      "key": "field_contact_title",
+      "label": "Title",
+      "name": "title",
+      "type": "text",
+      "instructions": "",
+      "required": 1,
+      "default_value": "Get In Touch"
+    },
+    {
+      "key": "field_contact_phone",
+      "label": "Phone Number",
+      "name": "phone",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "default_value": "+1 (555) 123-4567"
+    },
+    {
+      "key": "field_contact_email",
+      "label": "Email",
+      "name": "email",
+      "type": "email",
+      "instructions": "",
+      "required": 0,
+      "default_value": "hello@tayta.com"
+    },
+    {
+      "key": "field_contact_address",
+      "label": "Address",
+      "name": "address",
+      "type": "textarea",
+      "instructions": "",
+      "required": 0,
+      "rows": 2,
+      "default_value": "123 Main Street, City, State 12345"
+    },
+    {
+      "key": "field_contact_bowls_image",
+      "label": "Bowls Banner Image",
+      "name": "bowls_image",
+      "type": "image",
+      "instructions": "Full width image of bowls to display below the contact form",
+      "required": 0,
+      "return_format": "array",
+      "preview_size": "large",
+      "library": "all"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/contact"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true
+}

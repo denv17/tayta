@@ -1,0 +1,96 @@
+{
+  "key": "group_theme_options",
+  "title": "Theme Options - Footer",
+  "fields": [
+    {
+      "key": "field_footer_hours_weekdays",
+      "label": "Opening Hours - Weekdays",
+      "name": "footer_hours_weekdays",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "default_value": "Tuesday - Saturday 12:00pm - 23:00pm"
+    },
+    {
+      "key": "field_footer_hours_closed",
+      "label": "Closed Days",
+      "name": "footer_hours_closed",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "default_value": "Closed on Sunday"
+    },
+    {
+      "key": "field_footer_facebook",
+      "label": "Facebook URL",
+      "name": "footer_facebook",
+      "type": "url",
+      "instructions": "",
+      "required": 0,
+      "default_value": "https://facebook.com"
+    },
+    {
+      "key": "field_footer_instagram",
+      "label": "Instagram URL",
+      "name": "footer_instagram",
+      "type": "url",
+      "instructions": "",
+      "required": 0,
+      "default_value": "https://instagram.com"
+    },
+    {
+      "key": "field_footer_copyright",
+      "label": "Copyright Text",
+      "name": "footer_copyright",
+      "type": "text",
+      "instructions": "Use {year} for current year",
+      "required": 0,
+      "default_value": "© {year} example.com. All rights reserved."
+    },
+    {
+      "key": "field_footer_legal_links",
+      "label": "Legal Links",
+      "name": "footer_legal_links",
+      "type": "repeater",
+      "instructions": "Add legal links (Terms, Privacy, etc.)",
+      "required": 0,
+      "layout": "table",
+      "button_label": "Add Link",
+      "sub_fields": [
+        {
+          "key": "field_legal_link_text",
+          "label": "Text",
+          "name": "text",
+          "type": "text",
+          "instructions": "",
+          "required": 1,
+          "default_value": ""
+        },
+        {
+          "key": "field_legal_link_url",
+          "label": "URL",
+          "name": "url",
+          "type": "url",
+          "instructions": "",
+          "required": 1,
+          "default_value": ""
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "theme-settings"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true
+}

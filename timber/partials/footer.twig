@@ -1,40 +1,65 @@
 {# Site footer #}
-<footer class="bg-gray-900 text-white mt-12">
-	<div class="container mx-auto px-4 py-8">
+<footer class="bg-blue text-white">
+	<div
+		class="container py-12">
+
+		{# Main footer content #}
 		<div
-			class="grid grid-cols-1 md:grid-cols-3 gap-8">
+			class="flex flex-col lg:flex-row gap-12 items-start">
 
-			{# Column 1 #}
-			<div>
-				<h3 class="text-xl font-bold mb-4">{{ site.name }}</h3>
-				<p class="text-gray-400">{{ site.description }}</p>
-			</div>
+			{# Logo & Hours #}
+			<div
+				class="shrink-0 flex flex-col xl:flex-row xl:items-start gap-6 xl:gap-12">
+				{# Logo #}
+				<a href="{{ site.url }}">
+					{% include 'components/logo.twig' with { class: 'h-20 w-auto text-orange' } %}
+				</a>
 
-			{# Column 2 #}
-			<div>
-				<h3 class="text-xl font-bold mb-4">Links</h3>
-				{{ function('wp_nav_menu', {
-                    theme_location: 'footer',
-                    menu_class: 'space-y-2 text-gray-400',
-                    container: false
-                }) }}
-			</div>
-
-			{# Column 3 #}
-			<div>
-				<h3 class="text-xl font-bold mb-4">Contact</h3>
-				<div class="text-gray-400">
-					<p>Email: info@tayta.com</p>
-					<p>Phone: (123) 456-7890</p>
+				{# Hours #}
+				<div class="flex flex-col gap-4 text-sm">
+					<p>{{ options.footer_hours_weekdays|default('Tuesday - Saturday 12:00pm - 23:00pm') }}</p>
+					<p class="underline">{{ options.footer_hours_closed|default('Closed on Sunday') }}</p>
 				</div>
 			</div>
 
+			{# Menu Links #}
+			<nav class="grow">
+				{{ menu_footer|raw }}
+			</nav>
+
+			{# Social Media #}
+			<div class="shrink-0 lg:text-right">
+				<h3 class="text-orange mb-4">Connect With Us</h3>
+				<div class="flex items-center gap-6 lg:justify-end">
+					<a href="{{ options.footer_facebook|default('https://facebook.com') }}" target="_blank" rel="noopener" class="text-orange hover:text-white transition-colors" aria-label="Facebook">
+						<svg width="17" height="32" viewbox="0 0 17 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M15.6234 17.5078H11.064V31.125H4.98494V17.5078H7.62939e-05V11.915H4.98494V7.59888C4.98494 2.7356 7.90291 0 12.3407 0C14.4683 0 16.7176 0.425537 16.7176 0.425537V5.22803H14.2252C11.7935 5.22803 11.064 6.68701 11.064 8.26758V11.915H16.4744L15.6234 17.5078Z" fill="currentColor"/>
+						</svg>
+					</a>
+					<a href="{{ options.footer_instagram|default('https://instagram.com') }}" target="_blank" rel="noopener" class="text-orange hover:text-white transition-colors" aria-label="Instagram">
+						<svg width="28" height="28" viewbox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M13.6781 6.62622C17.5079 6.62622 20.6691 9.78735 20.6691 13.6172C20.6691 17.5078 17.5079 20.6082 13.6781 20.6082C9.78748 20.6082 6.68714 17.5078 6.68714 13.6172C6.68714 9.78735 9.78748 6.62622 13.6781 6.62622ZM13.6781 18.1765C16.1705 18.1765 18.1766 16.1704 18.1766 13.6172C18.1766 11.1248 16.1705 9.11865 13.6781 9.11865C11.1249 9.11865 9.11878 11.1248 9.11878 13.6172C9.11878 16.1704 11.1857 18.1765 13.6781 18.1765ZM22.5536 6.38306C22.5536 7.29492 21.8241 8.02441 20.9122 8.02441C20.0004 8.02441 19.2709 7.29492 19.2709 6.38306C19.2709 5.47119 20.0004 4.7417 20.9122 4.7417C21.8241 4.7417 22.5536 5.47119 22.5536 6.38306ZM27.1737 8.02441C27.2953 10.2737 27.2953 17.0215 27.1737 19.2708C27.0521 21.4592 26.5658 23.3438 24.9852 24.9851C23.4047 26.5657 21.4594 27.052 19.2709 27.1736C17.0216 27.2952 10.2738 27.2952 8.02454 27.1736C5.83606 27.052 3.95154 26.5657 2.31018 24.9851C0.729617 23.3438 0.243289 21.4592 0.121707 19.2708C0.000124931 17.0215 0.000124931 10.2737 0.121707 8.02441C0.243289 5.83594 0.729617 3.89062 2.31018 2.31006C3.95154 0.729492 5.83606 0.243164 8.02454 0.121582C10.2738 0 17.0216 0 19.2709 0.121582C21.4594 0.243164 23.4047 0.729492 24.9852 2.31006C26.5658 3.89062 27.0521 5.83594 27.1737 8.02441ZM24.2557 21.6416C24.9852 19.8787 24.8029 15.6233 24.8029 13.6172C24.8029 11.6719 24.9852 7.4165 24.2557 5.59277C23.7694 4.43774 22.8575 3.46509 21.7025 3.03955C19.8788 2.31006 15.6234 2.49243 13.6781 2.49243C11.672 2.49243 7.41663 2.31006 5.65369 3.03955C4.43787 3.52588 3.526 4.43774 3.03968 5.59277C2.31018 7.4165 2.49256 11.6719 2.49256 13.6172C2.49256 15.6233 2.31018 19.8787 3.03968 21.6416C3.526 22.8574 4.43787 23.7693 5.65369 24.2556C7.41663 24.9851 11.672 24.8027 13.6781 24.8027C15.6234 24.8027 19.8788 24.9851 21.7025 24.2556C22.8575 23.7693 23.8302 22.8574 24.2557 21.6416Z" fill="currentColor"/>
+						</svg>
+					</a>
+				</div>
+			</div>
 		</div>
 
-		<div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-			<p>&copy;
-				{{ "now"|date("Y") }}
-				{{ site.name }}. All rights reserved.</p>
+	</div>
+	{# Copyright & Legal #}
+	<div class="border-t border-white/20">
+		<div class="container py-8">
+			<div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+				<p>{{ options.footer_copyright|default('© {year} example.com. All rights reserved.')|replace({'{year}': "now"|date("Y")}) }}</p>
+
+				{% if options.footer_legal_links %}
+					<div class="flex gap-6">
+						{% for link in options.footer_legal_links %}
+							<a href="{{ link.url }}" class="hover:text-orange transition-colors">{{ link.text }}</a>
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
 		</div>
 	</div>
 </footer>

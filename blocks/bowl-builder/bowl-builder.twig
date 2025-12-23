@@ -1,0 +1,110 @@
+{# Bowl Builder Block #}
+<section id="create-your-bowl" class="bg-gold py-20 overflow-hidden relative" style="background-image: url('{{ site.theme.link }}/src/images/patterns/create-your-bowl-pattern.png'); background-repeat: repeat; background-size: auto;">
+
+	<div
+		class="container relative z-10">
+
+		{# Title #}
+		<div class="text-center mb-12">
+			<h2 class="text-blue font-heading font-black text-4xl lg:text-6xl uppercase mb-4">
+				{{ fields.title|default('Create Your Own Bowl') }}
+			</h2>
+			{% if fields.subtitle %}
+				<p class="text-blue text-lg lg:text-xl font-bold uppercase">
+					{{ fields.subtitle }}
+				</p>
+			{% endif %}
+		</div>
+
+		<div
+			class="relative max-w-7xl mx-auto flex flex-col gap-8 ">
+
+			{# Form Steps #}
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+				{% if fields.option_groups %}
+					{% for group in fields.option_groups %}
+						<div
+							class="bg-blue rounded-3xl p-8">
+							{# Group Title #}
+							<h3 class="text-white font-bold text-2xl mb-6">
+								{{ loop.index }}.
+								{{ group.group_title }}
+							</h3>
+
+							{# Options #}
+							{% if group.options %}
+								<div class="flex flex-col gap-1">
+									{% for option in group.options %}
+										{% set optionId = 'option_' ~ loop.parent.loop.index ~ '_' ~ loop.index %}
+										{% set groupIndex = loop.parent.loop.index %}
+										{% set variant = loop.parent.loop.index is odd ? 'yellow' : 'orange' %}
+										{% set priceValue = option.additional_price ? option.additional_price|replace({'+': '', '$': '', ' ': ''})|trim : '0' %}
+										{% set priceDisplay = option.additional_price and priceValue > 0 ? '+$' ~ priceValue : '' %}
+
+										<label
+											for="{{ optionId }}" class="flex items-center gap-4 bg-white rounded-full px-6 py-4 cursor-pointer transition-all hover:shadow-lg" data-bowl-option="{{ variant }}">
+
+											{# Radio Button #}
+											<input
+											type="radio" id="{{ optionId }}" name="group_{{ loop.parent.loop.index }}" value="{{ option.option_name }}" data-group="{{ loop.parent.loop.index }}" data-price="{{ priceValue }}" class="w-6 h-6 shrink-0 rounded-full cursor-pointer radio-{{ variant }}">
+
+											{# Option Label #}
+											<span class="flex-1 font-semibold text-blue">
+												{{ option.option_name }}
+												{% if priceDisplay %}
+													<span class="text-sm ml-1">({{ priceDisplay }})</span>
+												{% endif %}
+											</span>
+										</label>
+									{% endfor %}
+								</div>
+							{% endif %}
+						</div>
+					{% endfor %}
+				{% endif %}
+
+			</div>
+
+			{# Bowl Summary #}
+			<div class="relative bg-orange max-w-248 rounded-3xl p-8 lg:py-12 lg:pl-16 lg:pr-66 flex flex-col gap-8" data-bowl-summary data-base-price="{{ fields.base_price|default(10) }}">
+
+				<h3 class="text-blue font-bold text-3xl">Your Bowl Summary</h3>
+
+				<div class="flex flex-col gap-4" data-bowl-summary-items>
+					{% if fields.option_groups %}
+						{% for group in fields.option_groups %}
+							<div class="text-white flex flex-col gap-1 border-dashed border-b border-blue pb-4">
+								<span class="font-bold">{{ group.group_title }}:</span>
+								<span data-summary-group="{{ loop.index }}">-</span>
+							</div>
+						{% endfor %}
+					{% endif %}
+
+					<div class="flex flex-col gap-1 text-white text-2xl pt-4">
+						<span class="font-bold">Total:</span>
+						<span data-bowl-total>$0.00</span>
+					</div>
+				</div>
+
+				{# Button #}
+				<div class="relative z-10">
+					{% include 'timber/components/button.twig' with {
+							btn: {
+								title: 'Confirm Order',
+								variant: 'blue',
+							}
+						} %}
+				</div>
+
+				{# Bowl Image #}
+				{% if fields.bowl_image %}
+					<div class="absolute -bottom-16 xl:bottom-1/2 -right-16 md:-right-12 xl:-right-50 xl:translate-y-1/2 pointer-events-none">
+						<img src="{{ fields.bowl_image.url }}" alt="{{ fields.bowl_image.alt }}" class="w-60 md:w-86 xl:w-100">
+					</div>
+				{% endif %}
+
+			</div>
+		</div>
+	</div>
+</section>
