@@ -23,5 +23,6 @@
 {% else %}
 	<button type="{{ btn.type|default('button') }}" class="{{ classes }}" {{ btn.name ? 'name="' ~ btn.name ~ '"' : '' }}>
 		{{ buttonText }}
+
 	</button>
 {% endif %}
